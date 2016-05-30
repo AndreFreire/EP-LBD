@@ -2,28 +2,27 @@ package Model;
 
 public class Reserva {
 
-	private long idSalaFK;
-	private long idSocioFK;
+	private Sala sala;
+	private Socio socio;
 	private String data;
-	private long qtt;
 	
-	public long getQtt() {
-		return qtt;
+	public Reserva(Sala sala, Socio socio, String data) {
+		this.sala = sala;
+		this.socio = socio;
+		this.data = data;
 	}
-	public void setQtt(long qtt) {
-		this.qtt = qtt;
+	
+	public Sala getSala() {
+		return sala;
 	}
-	public long getIdSalaFK() {
-		return idSalaFK;
+	public void setSala(Sala sala) {
+		this.sala = sala;
 	}
-	public void setIdSalaFK(long idSalaFK) {
-		this.idSalaFK = idSalaFK;
+	public Socio getSocio() {
+		return socio;
 	}
-	public long getIdSocioFK() {
-		return idSocioFK;
-	}
-	public void setIdSocioFK(long idSocioFK) {
-		this.idSocioFK = idSocioFK;
+	public void setSocio(Socio socio) {
+		this.socio = socio;
 	}
 	public String getData() {
 		return data;

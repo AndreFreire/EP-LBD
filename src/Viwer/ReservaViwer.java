@@ -3,18 +3,26 @@ import javax.swing.JPanel;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+
+import DAO.SocioDAO;
+import Model.Socio;
+
 import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.JLabel;
 
 import java.awt.EventQueue;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class ReservaViwer extends JFrame {
+	SocioDAO socioDAO = new SocioDAO();
+	List<Socio> socios = socioDAO.getListAll();
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -71,8 +79,9 @@ public class ReservaViwer extends JFrame {
 		JLabel lblAssociado = new JLabel("Associado:");
 		getContentPane().add(lblAssociado, "4, 10, right, default");
 		
-		JComboBox comboBox_1 = new JComboBox();
-		getContentPane().add(comboBox_1, "6, 10, fill, default");
+		JComboBox associado = new JComboBox();
+		getContentPane().add(associado, "6, 10, fill, default");
+		associado.setModel(new DefaultComboBoxModel(this.socios.toArray()));
 		
 		JLabel lblData = new JLabel("Data:");
 		getContentPane().add(lblData, "4, 14");
