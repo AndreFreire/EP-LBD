@@ -27,7 +27,7 @@ public class MainViwer extends JFrame {
 		});
 	}
 	public MainViwer() {
-		setLayout(new FormLayout(new ColumnSpec[] {
+		getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
 				ColumnSpec.decode("44px"),
 				ColumnSpec.decode("97px"),
 				FormSpecs.LABEL_COMPONENT_GAP_COLSPEC,
@@ -50,18 +50,8 @@ public class MainViwer extends JFrame {
 				FormSpecs.RELATED_GAP_ROWSPEC,
 				FormSpecs.DEFAULT_ROWSPEC,}));
 		
-		JButton btnListaDeReservas = new JButton("Lista de Reservas");
-		btnListaDeReservas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ListagemReservaViwer lv = new ListagemReservaViwer();
-				lv.setVisible(true);
-				setVisible(false);
-				dispose();
-			}
-		});
-		
 		JLabel lblTelaPrincipal = new JLabel("Tela Principal");
-		add(lblTelaPrincipal, "4, 2, left, center");
+		getContentPane().add(lblTelaPrincipal, "4, 2, left, center");
 		
 		JButton btnNewButton = new JButton("Reservar");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -72,19 +62,18 @@ public class MainViwer extends JFrame {
 				dispose();
 			}
 		});
-		add(btnNewButton, "2, 6, left, top");
-		add(btnListaDeReservas, "2, 10, 3, 1, left, top");
+		getContentPane().add(btnNewButton, "2, 6, left, top");
 		
-		JButton btnListaDeUsuarios = new JButton("Lista de Usuarios");
+		JButton btnListaDeUsuarios = new JButton("Listagens");
 		btnListaDeUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UsuarioViwer uv = new UsuarioViwer();
+				ListagemViwer uv = new ListagemViwer();
 				uv.setVisible(true);
 				setVisible(false);
 				dispose();
 			}
 		});
-		add(btnListaDeUsuarios, "2, 14, 3, 1");
+		getContentPane().add(btnListaDeUsuarios, "2, 8, 3, 1");
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

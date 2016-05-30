@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.Sala;
-import Model.Socio;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

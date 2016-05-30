@@ -1,11 +1,4 @@
 package Viwer;
-import javax.swing.JPanel;
-
-import org.jdatepicker.JDatePicker;
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
-
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
@@ -13,7 +6,6 @@ import com.jgoodies.forms.layout.RowSpec;
 import DAO.ReservaDAO;
 import DAO.SalaDAO;
 import DAO.SocioDAO;
-import Model.Reserva;
 import Model.Sala;
 import Model.Socio;
 
@@ -30,6 +22,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
 
+@SuppressWarnings("serial")
 public class ReservaViwer extends JFrame {
 	SocioDAO socioDAO = new SocioDAO();
 	SalaDAO salaDAO = new SalaDAO();
@@ -99,10 +92,10 @@ public class ReservaViwer extends JFrame {
 		JLabel lblData = new JLabel("Data:");
 		getContentPane().add(lblData, "4, 14");		
 		
-		UtilDateModel model = new UtilDateModel();
-		model.setDate(1990, 1, 1);
+		//UtilDateModel model = new UtilDateModel();
+		//model.setDate(1990, 1, 1);
 		
-		JDatePanelImpl datePanel = new JDatePanelImpl(model);
+		//JDatePanelImpl datePanel = new JDatePanelImpl(model);
 		//JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, null);
 		//getContentPane().add(datePicker, "6, 14, fill, default");
 		
