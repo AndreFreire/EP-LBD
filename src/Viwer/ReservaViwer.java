@@ -4,12 +4,6 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import javax.swing.text.DateFormatter;
 
-import org.jdatepicker.JDatePicker;
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilCalendarModel;
-import org.jdatepicker.impl.UtilDateModel;
-
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
@@ -22,23 +16,22 @@ import Model.Sala;
 import Model.Socio;
 
 import com.jgoodies.forms.layout.FormSpecs;
-import javax.swing.JLabel;
 
 import java.awt.EventQueue;
-
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Properties;
-import java.awt.event.ActionEvent;
+
 
 public class ReservaViwer extends JFrame {
 	SocioDAO socioDAO = new SocioDAO();
@@ -108,18 +101,7 @@ public class ReservaViwer extends JFrame {
 		
 		JLabel lblData = new JLabel("Data:");
 		getContentPane().add(lblData, "4, 14");		
-		
-		UtilCalendarModel model = new UtilCalendarModel();
-		model.setDate(1990, 1, 1);
-		Properties p = new Properties();
-		p.put("text.today", "Today");
-		p.put("text.month", "Month");
-		p.put("text.year", "Year");
-		
-		JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
-		final JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
-		getContentPane().add(datePicker, "6, 14, fill, default");
-		
+			
 		Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 24); // 24 == 12 PM == 00:00:00
         calendar.set(Calendar.MINUTE, 0);
@@ -135,7 +117,7 @@ public class ReservaViwer extends JFrame {
         formatter.setAllowsInvalid(false); // this makes what you want
         formatter.setOverwriteMode(true);
      
-        getContentPane().add(spinner, "6, 18, fill, default");
+        getContentPane().add(spinner, "6, 14, fill, default");
         
 		JButton btnNewButton = new JButton("Voltar");
 		btnNewButton.addActionListener(new ActionListener() {
