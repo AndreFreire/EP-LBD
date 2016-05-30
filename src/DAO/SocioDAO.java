@@ -60,7 +60,7 @@ public class SocioDAO {
 
 				Socio socio = new Socio(rs.getLong("idSocio"), rs.getString("nome"));
 				Sala sala = new Sala(rs.getLong("idSalaFK"), rs.getString("tipoSala"));
-				Reserva reserva = new Reserva(sala, socio, rs.getString("data"));
+				Reserva reserva = new Reserva(sala, socio, rs.getDate("data"));
 				reserva.setData(rs.getString("data"));
 				
 				//socio.setReserva(reserva);
