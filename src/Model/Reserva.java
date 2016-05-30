@@ -6,10 +6,10 @@ public class Reserva {
 	private Socio socio;
 	private String data;
 	
-	public Reserva(Sala sala, Socio socio, String data) {
+	public Reserva(Sala sala, Socio socio, String dateString){
 		this.sala = sala;
 		this.socio = socio;
-		this.data = data;
+		this.data = dateString;
 	}
 	
 	public Sala getSala() {

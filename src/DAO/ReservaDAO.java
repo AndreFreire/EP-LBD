@@ -1,6 +1,9 @@
 package DAO;
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,20 +31,22 @@ public class ReservaDAO {
 					+ "FROM reserva "
 					+ "ORDER BY idSalaFK ASC");
 			ResultSet rs = stmt.executeQuery();
+			DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 			while(rs.next() && !alreadyIn){
-				if(reserva.getData() == rs.getString("data")){
+				String dateString = df.format(rs.getTimestamp("data"));				
+				if(reserva.getData() == dateString){
 					alreadyIn = true;
 				}
 			}
 			
-			if(alreadyIn == true){
-				String sql = "INSERT INTO reserva (idSalaFK, idSocioFK, data) VALUES (?, ?, ?)";
+			if(alreadyIn != true){
+				String sql = "INSERT INTO reserva (idSalaFK, idSocioFK, data, usada) VALUES (?, ?, ?, 0)";
 				PreparedStatement stmt1 = this.con.prepareStatement(sql);
 					
 				stmt1.setLong(1, reserva.getSala().getIdSala());
 				stmt1.setLong(2, reserva.getSocio().getIdSocio());
 				stmt1.setString(3, reserva.getData());
-					
+				
 				stmt1.execute();
 				
 				stmt1.close();
