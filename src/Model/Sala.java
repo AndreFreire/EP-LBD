@@ -4,7 +4,7 @@ public class Sala {
 	
 	private long idSala;
 	private String nome;
-	
+
 	public Sala(long idSala, String nome) {
 		this.idSala = idSala;
 		this.nome = nome;

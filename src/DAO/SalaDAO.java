@@ -17,7 +17,7 @@ public class SalaDAO {
 	public SalaDAO(){
 		this.con = new ConnectionFactory().getConnection();
 	}
-		
+	
 	public List<Sala> getListAll(){
 		try{
 			List<Sala> salas = new ArrayList<Sala>();

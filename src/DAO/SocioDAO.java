@@ -44,6 +44,7 @@ public class SocioDAO {
 			//System.out.println(socio.getReserva().getData());
 			
 			List<Socio> socios = new ArrayList<Socio>();
+
 			PreparedStatement stmt = this.con.prepareStatement(""
 					+ "SELECT * "
 					+ "FROM socio "
@@ -56,6 +57,7 @@ public class SocioDAO {
 			
 			while(rs.next()){
 				//Cria objeto socio
+
 				Socio socio = new Socio(rs.getLong("idSocio"), rs.getString("nome"));
 				Sala sala = new Sala(rs.getLong("idSalaFK"), rs.getString("tipoSala"));
 				Reserva reserva = new Reserva(sala, socio, rs.getString("data"));

@@ -101,6 +101,7 @@ public class ReservaViwer extends JFrame {
 		
 		UtilDateModel model = new UtilDateModel();
 		model.setDate(1990, 1, 1);
+		
 		JDatePanelImpl datePanel = new JDatePanelImpl(model);
 		//JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, null);
 		//getContentPane().add(datePicker, "6, 14, fill, default");

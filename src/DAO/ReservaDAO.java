@@ -65,7 +65,6 @@ public class ReservaDAO {
 				Sala sala = new Sala(rs.getLong("idSalaFK"), rs.getString("tipoSala"));
 				Socio socio = new Socio(rs.getLong("idSocioFK"), rs.getString("nome"));
 				Reserva reserva = new Reserva(sala, socio, rs.getString("data"));
-
 				reservas.add(reserva);
 			}
 			rs.close();
@@ -75,7 +74,7 @@ public class ReservaDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	// Lista de reservas de uma sala por dia.
 	public List<Reserva> getDayList(Sala sala){
 		try{
@@ -88,8 +87,7 @@ public class ReservaDAO {
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next()){
-				//Cria objeto reserva
-				
+				//Cria objeto reserva				
 				Socio socio = new Socio(rs.getLong("idSocioFK"), rs.getString("nome"));
 				Reserva reserva = new Reserva(sala, socio, rs.getString("DAYOFMONTH(data)"));
 				reservas.add(reserva);
@@ -126,6 +124,7 @@ public class ReservaDAO {
 				Socio socio = new Socio(rs.getLong("idSocioFK"), rs.getString("nome"));
 				Reserva reserva = new Reserva(sala, socio, rs.getString("data"));
 				//reserva.setQtt(rs.getLong("max(counted)"));
+
 				reservas.add(reserva);
 			}
 			rs.close();
